@@ -1,38 +1,237 @@
-.App {
-  text-align: center;
+p,
+h2 {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.layout,
+.layout__block,
+.steps,
+.container,
+.form__input-group {
   display: flex;
+}
+
+.layout__block {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.layout__block--left {
+  flex: 1 1 65%;
+  color: #333333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.layout__block--right {
+  color: #FFFFFF;
+  background-color: #286EFA;
+  flex: 2 2 35%;
+}
+
+.layout__block--top {
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+.layout__block--bottom {
+  flex-grow: 1;
+}
+
+.container {
+  font-size: 15px;
+}
+
+.container--left,
+.container--right {
+  flex-direction: column;
+
+}
+
+.container--left {
+  max-width: 73%;
+  row-gap: 40px;
+}
+
+.container--right {
+  max-width: 55%;
+  row-gap: 78px;
+}
+
+.container--top {
+  font-size: 13px;
+  align-items: center;
+  column-gap: 10px;
+  padding: 30px 40px;
+}
+
+.steps {
+  column-gap: 10px;
+}
+
+.steps__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #AAAAAA;
+}
+
+.steps__dot--active {
+  background-color: #333333;
+}
+
+.heading {
+  font-size: 32px;
+}
+
+.heading--left {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.link {
+  font-weight: bold;
+  color: #286EFA;
+  text-decoration: none;
+}
+
+.text--end {
+  font-size: 13px;
+  line-height: 25px;
+}
+
+.text--big {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.form__input-group {
+  position: relative;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.form__input-area {
+  outline: none;
+  border: 1.5px solid #EDEDED;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 480px;
+  height: 17px;
+}
+
+.form__input-area[value]:not([value=''])+.form__input-label--error {
+  top: -8px;
+  padding: 0 3px;
+  font-size: 12px;
+}
+
+.form__input-area:valid+.form__input-label {
+  top: -8px;
+  padding: 0 3px;
+  font-size: 12px;
+  color: #777777;
+}
+
+.form__input-area:focus {
+  border: 1.5px solid #286EFA;
+  font-size: 15px;
+}
+
+.form__input-label {
+  color: #777777;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  background: #ffffff;
+  transition: 0.25s;
+}
+
+.form__input-area:focus+.form__input-label {
+  top: -8px;
+  padding: 0 3px;
+  font-size: 12px;
+  color: #286EFA;
+  transition: 0.25s;
+}
+
+.form__input-area[type='password'] {
+  background: url(http://cdn1.iconfinder.com/data/icons/flat-ui-icons-24-px/24/eye-24-16.png) no-repeat right;
+  background-position-x: 97%;
+}
+
+.form__input-area--error,
+.form__input-area--error:focus {
+  border: 1.5px solid #F53C3C;
+}
+
+.form__input-label--error,
+.form__input-area:valid+.form__input-label--error,
+.form__input-area:focus+.form__input-label--error {
+  color: #F53C3C;
+}
+
+.form__input-select {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  height: 50px;
+  width: 100%;
+  max-width: 480px;
+  padding: 0px 10px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 1.5px solid #EDEDED;
+  color: #777777;
+  background: url(http://cdn1.iconfinder.com/data/icons/font-awesome/1792/chevron-down-16.png) no-repeat right;
+  background-position-x: 97%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form__input-select:focus {
+  border: 1.5px solid #286EFA;
+  outline: none;
+}
+
+.form__input-select--error,
+.form__input-select--error:focus {
+  border: 1.5px solid #F53C3C;
+}
+
+.form__input-helper {
+  color: #777777;
+  font-size: 12px;
+}
+
+.form__input-error {
+  color: #F53C3C;
+  font-size: 12px;
+}
+
+.form__button {
+  background-color: #EDEDED;
+  border: none;
+  color: #AAAAAA;
+  height: 50px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.form__button--active {
+  background-color: #286EFA;
+  color: #FFFFFF;
 }

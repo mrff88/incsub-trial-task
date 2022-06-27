@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# QUESTIONS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. How do relative, fixed, absolute, and statically positions differ?
 
-## Available Scripts
+The way they differ is mainly on how they position an element in the DOM and it's interactivity with other elements.
 
-In the project directory, you can run:
+### - Relative
 
-### `npm start`
+With this attribute the element can be positioned in a different place relative to itself by using the top, left, bottom and right attributes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### - Fixed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+With the fixed attribute the elements position is fixed relative to the browsers viewport, so even if the page is scrolled it will stay in the same position. To position the element the attributes top, left, bottom and right are used.
 
-### `npm test`
+### - Absolute
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+With the absolute attribute can be positioned in a different place relative to the closest parent element with relative or absolute position by using top, left, bottom and right. If no parent has such attribute it will use the html element as its reference meaning it will use the page itself to place himself.
 
-### `npm run build`
+### - Static
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is the default for the position attribute, with it the element will position itself in order to other elements's position. It will ignore the attributes top, left, bottom and right.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. What is the difference between variables created using let, var, and const?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The difference lies in their scope and wether the variable can be redeclared and/or reassigned:
 
-### `npm run eject`
+### - Var
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Variables declared with var have a global scope if declared outside a function or a function scope if declared inside a function. They can be both redeclared and reassigned.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### - Let
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Variables declared with let have a block scope, meaning they can only be accessed inside the block of code (within curly braces) where the variable was declared. They cannot be redeclared but they can be reassigned.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### - Const
 
-## Learn More
+Variables declared with const also have a block scope but the difference with let is that it cannot be redeclared or reassigned. Also, with const variables their value must be initialized.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 3. What must be developed first, desktop or mobile view, and why?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Since smartphones have become mainstream in the world and are considered the majority of internet users, it is beneficial to improve the UI/UX on mobile first. By doing so, you open your app to a bigger public demographic and with it more potential clients. But with mobile comes the limitation of a smaller view space, so there is a need to prioritize the information to be shown to the users, making us developers have to streamline the app's interface and content.
 
-### Code Splitting
+## 4. What is the difference between an alert and an alert dialog? Also, walk us through the appropriate instances to use them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The difference between an alert and an alert dialog is that alert dialog is an ARIA role that should be used for markup of dialogs (HTML modals) which require urgent user response, while alert is a JavaScript function that shows an alert box, which is often used to warn users with a defined message.
+It is preferred to use HTML modals than JavaScript alert, since JavaScript alerts are very limited on styling and they block the use of the browser until attended. That is why html modals with alert dialog roles are better suited for use cases where alert box could be used in web development.
 
-### Analyzing the Bundle Size
+## 5. What is the difference between a link, a generic button and a submit button? Walk us through the appropriate instances to use them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The difference is in their usage. Best practice to use links is for navigation in or between pages. Buttons are used for actions, like opening a modal, or searching. Specifically, the submit type button is used to submit a form data.
 
-### Making a Progressive Web App
+## 6. React (how the component cycle works, if you have experience with Redux Reducers/Actions, Webpack, code efficiency, optimization, and performance).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+React components have three main phases for its lifecycle:
 
-### Advanced Configuration
+### - Initialization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This is the phase where the component gets constructed with given props (if there are any) and default state.
 
-### Deployment
+### - Mounting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This is the phase where elements get put into the DOM. The functions involved in this phase are componentWillMound() and componentDidMount().
 
-### `npm run build` fails to minify
+### - Updating
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is the phase where the components state updates or changes based on user interaction with the react components (like a button click). Some of the functions involved in this phase are componentWillReceiveProps(), shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate().
+
+### - Unmounting
+
+This is the final phase where components get unmounted from the DOM. The function involved with this phase is componentWillUnmount().
+
+Continuing with the question, I have some experience with Redux in React, specifically with Redux Toolkit which simplifies reducers and actions implementations with hooks. Redux is a very useful JavaScript library that lets you manage state in a centralized way, helping with the management of complex states in an app. I have worked in two apps that used Redux for it's state management, [**TUQUIPU**](https://github.com/mrff88/tuquipu-frontend) and [EVENTOPS](https://github.com/mrff88/grupo-4/tree/main/eventops), projects which I worked on the full stack bootcamp that I finished last month.
+
+As for webpack, code efficiency, optimization and performance I have to admit to not have much experience with them but I keep on learning and improving my skills as a front end developer every day, always searching for best practices in web development.
